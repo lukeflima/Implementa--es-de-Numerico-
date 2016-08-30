@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "fparser/fparser.hh"
+#include "mainwindow.h"
 
 #define MAXITER 20
 
@@ -29,7 +30,6 @@ void LocRaiz(std::string funcao,double z , int maxIter, t_saida *saida){
     double Fb;
     double Aureo = 2/(sqrt(5)-1);
     /*parser de funções*/
-    FunctionParser fparser;
     /* seta os valores de a e b*/
     if(z == 0)
     {
@@ -88,7 +88,6 @@ void LocRaiz(std::string funcao,double z , int maxIter, t_saida *saida){
 }
 
 void MetodoNewton(std::string funcao, int MaxIter, double tole, t_raiz *raiz){ //fdx derivada de fx_inicial
-    FunctionParser fparser;
     if(fparser.Parse(funcao,"x") != -1){
         std::cout << "Parser error!" << std::endl;
         exit(EXIT_FAILURE);
@@ -150,7 +149,6 @@ void Bissecao(std::string funcao, int MaxIter, double tole, t_raiz *raiz){
         dx = fabs(a[0]-b[0])/2;
 
         /*  */
-        FunctionParser fparser;
         if(fparser.Parse(funcao,"x") != -1){
             std::cout << "Parser error!" << std::endl;
             exit(EXIT_FAILURE);
@@ -207,7 +205,6 @@ int Secante(std::string funcao, int MaxIter, double tole, t_raiz *raiz){
 
     t_saida saida;
     LocRaiz(funcao,0, MaxIter, &saida);
-    FunctionParser fparser;
         if(fparser.Parse(funcao,"x") != -1){
             std::cout << "Parser error!" << std::endl;
             exit(EXIT_FAILURE);

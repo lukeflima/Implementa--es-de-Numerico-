@@ -4,11 +4,18 @@
 #include "methods.cpp"
 #include "form.h"
 
+FunctionParser fparser;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    fparser.AddConstant("pi",3.14159265359);
+    fparser.AddConstant("Pi",3.14159265359);
+    fparser.AddConstant("PI",3.14159265359);
+    fparser.AddConstant("pI",3.14159265359);
+    fparser.AddConstant("e",2.7182818284);
 }
 
 MainWindow::~MainWindow()
@@ -26,8 +33,7 @@ void MainWindow::on_bissecao_clicked()
         return;
     }
 
-    FunctionParser parser;
-    if(parser.Parse(func.toStdString(), "x") != -1){
+    if(fparser.Parse(func.toStdString(), "x") != -1){
         std::clog << "Sintaxe de função invalida." << std::endl;
         return;
     }
@@ -51,8 +57,7 @@ void MainWindow::on_secante_clicked()
         return;
     }
 
-    FunctionParser parser;
-    if(parser.Parse(func.toStdString(), "x") != -1){
+    if(fparser.Parse(func.toStdString(), "x") != -1){
         std::clog << "Sintaxe de função invalida." << std::endl;
         return;
     }

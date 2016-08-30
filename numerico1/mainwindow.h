@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "fparser/fparser.hh"
+
+extern FunctionParser fparser;
 
 namespace Ui {
 class MainWindow;
