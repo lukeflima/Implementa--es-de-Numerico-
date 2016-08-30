@@ -23,6 +23,8 @@ private slots:
 
     void on_secante_clicked();
 
+    void on_newton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -131,7 +131,7 @@ void MetodoNewton(std::string funcao, int MaxIter, double tole, t_raiz *raiz){ /
                 std::clog << "New " << cont << std::endl;
                 LocRaiz(funcao,x[0],MaxIter,&saida);
             }
-        }
+        }else repeat = false;
     }
 }
 
@@ -174,18 +174,7 @@ void Bissecao(std::string funcao, int MaxIter, double tole, t_raiz *raiz){
         if(Fx>tole || iter>MaxIter)
         {
             condErro = 1;
-            if(iter >= MaxIter){
-                iter = 0;
-                Fx =1 ;
-                if(cont > 5){
-                    repeat = false;
-                }else{
-                    repeat = true;
-                    cont++;
-                    std::clog << "Bissecao: " << cont << std::endl;
-                    LocRaiz(funcao,x[0],MaxIter,&saida);
-                }
-            }
+
         }
         else
         {
@@ -193,7 +182,21 @@ void Bissecao(std::string funcao, int MaxIter, double tole, t_raiz *raiz){
             repeat = false;
         }
 
+        if(condErro){
+            iter = 0;
+            Fx =1 ;
+            if(cont > 5){
+                repeat = false;
+            }else{
+                repeat = true;
+                cont++;
+                std::clog << "Bissecao: " << cont << std::endl;
+                LocRaiz(funcao,x[0],MaxIter,&saida);
+            }
+        }else repeat = false;
+
     }
+
 
     raiz->x = x[0];
     raiz->condErro = condErro;
