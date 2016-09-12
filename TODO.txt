@@ -1,0 +1,14 @@
+1) IMPLEMENTAÇÃO DE MAIS DOIS METODOS{
+	I) Método da Posição Falsa
+	II) Método do Ponto Fixo 
+}
+2) LEITURA DE AQUIVO{
+	I)SELEÇÃO DE FUNÇOES A SEREM TESTADA (?)
+3) ARQUIVO DE CONFIGURAÇÃO{
+	-XML
+	-DEFAULT
+}
+4) SALVAR RESULTADO EM ARQUIVO{
+	-APPEND
+	-MÉTODO - X: , Fx: , Inter , #Repetição 
+}
